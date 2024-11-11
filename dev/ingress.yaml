@@ -3,22 +3,20 @@ kind: Ingress
 metadata:
   name: metric-ingress
   namespace: default
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
   - host: 388127b6-fcb9-42a6-b41c-39840960f8ea.k8s.civo.com
     http:
       paths:
-      - path: /frontend(/|$)(.*)
-        pathType: ImplementationSpecific
+      - path: /
+        pathType: Prefix
         backend:
           service:
             name: metric-frontend-service
             port:
               number: 3000
-      - path: /backend(/|$)(.*)
-        pathType: ImplementationSpecific
+      - path: /
+        pathType: Prefix
         backend:
           service:
             name: metric-backend-service
