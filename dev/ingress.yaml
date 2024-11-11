@@ -1,31 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: metric-ingress-frontend
+  name: metric-ingress
   namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: / # Rewrite everything to the root path
 spec:
   rules:
-  - host: 388127b6-fcb9-42a6-b41c-39840960f8ea.k8s.civo.com/frontend
+  - host: 388127b6-fcb9-42a6-b41c-39840960f8ea.k8s.civo.com
     http:
       paths:
-      - path: /
+      - path: /frontend
         pathType: Prefix
         backend:
           service:
             name: metric-frontend-service
             port:
               number: 3000
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: metric-ingress-backend
-  namespace: default
-spec:
-  rules:
-  - host: 388127b6-fcb9-42a6-b41c-39840960f8ea.k8s.civo.com/backend
-    http:
-      - path: /
+      - path: /backend
         pathType: Prefix
         backend:
           service:
