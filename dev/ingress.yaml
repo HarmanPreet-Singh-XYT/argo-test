@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: metric-ingress
+  name: metric-ingress-frontend
   namespace: default
 spec:
   rules:
@@ -19,7 +19,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: metric-ingress
+  name: metric-ingress-backend
   namespace: default
 spec:
   rules:
