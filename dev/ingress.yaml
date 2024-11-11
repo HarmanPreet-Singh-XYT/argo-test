@@ -16,11 +16,11 @@ spec:
           service:
             name: metric-frontend-service
             port:
-              number: 30000
+              number: 3000
       - path: /backend
         pathType: Prefix
         backend:
           service:
             name: metric-backend-service
             port:
-              number: 31000
+              number: 4000
