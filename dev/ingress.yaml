@@ -8,7 +8,7 @@ spec:
   - host: 388127b6-fcb9-42a6-b41c-39840960f8ea.k8s.civo.com/frontend
     http:
       paths:
-      - path: /frontend
+      - path: /
         pathType: Prefix
         backend:
           service:
@@ -25,7 +25,7 @@ spec:
   rules:
   - host: 388127b6-fcb9-42a6-b41c-39840960f8ea.k8s.civo.com/backend
     http:
-      - path: /backend
+      - path: /
         pathType: Prefix
         backend:
           service:
